@@ -15,6 +15,19 @@ module.exports = function (app) {
     
     const initNum = convertHandler.getNum(input)
     const initUnit = convertHandler.getUnit(input)
+
+    if (initNum === 'ERROR' && initUnit === 'ERROR') {
+      return res.status(400).send('invalid number and unit')
+    }
+    
+    if (initNum === 'ERROR') {
+      return res.status(400).send('invalid number')
+    }
+
+    if (initUnit === 'ERROR') {
+      return res.status(400).send('invalid unit')
+    }
+    
     const initSpellOutUnit = convertHandler.spellOutUnit(initUnit)
 
     const returnNum = convertHandler.convert(initNum, initUnit)
@@ -22,7 +35,7 @@ module.exports = function (app) {
     const returnSpellOutUnit = convertHandler.spellOutUnit(returnUnit)
 
     const string = convertHandler.getString(initNum, initSpellOutUnit, returnNum, returnSpellOutUnit)
-    console.log(string)
+    
     const obj = {
       initNum,
       initUnit,

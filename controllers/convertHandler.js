@@ -21,12 +21,19 @@ function ConvertHandler() {
   
   this.getUnit = function(input) {
     let result = 'ERROR';
-    let test = /(\dgal$)|(\dL$)|(\dlbs$)|(\dkg$)|(\dmi$)|(\dkm$)/.test(input)
+    input = input.toLowerCase()
     
+    let test = /\d(gal|l|lbs|kg|mi|km)$/.test(input)
+
+    if (!test) {
+      test = /^(gal|l|lbs|kg|mi|km)$/.test(input)
+    }
+
     if (test) {
-      result = /(gal$)|(L$)|(lbs$)|(kg$)|(mi$)|(km$)/.exec(input)
+      result = /(gal$)|(l$)|(lbs$)|(kg$)|(mi$)|(km$)/.exec(input)
       if (result) {
         result = result.shift()
+        result = result === 'l' ? 'L' : result
       } 
     } 
     
@@ -93,24 +100,28 @@ function ConvertHandler() {
     const miToKm = 1.60934;
     let result;
 
+    function round(number) {
+      return Math.round(number * 100000) / 100000
+    }
+
     switch(initUnit) {
       case 'gal':
-        result = initNum * galToL
+        result = round(initNum * galToL)
         break
       case 'L':
-        result = Math.round((initNum / galToL) * 100000) / 100000
+        result = round(initNum / galToL)
         break
       case 'lbs':
-        result = initNum * lbsToKg
+        result = round(initNum * lbsToKg)
         break
       case 'kg':
-        result = Math.round((initNum / lbsToKg) * 1000000) / 1000000
+        result = round(initNum / lbsToKg)
         break
       case 'mi':
-        result = initNum * miToKm
+        result = round(initNum * miToKm)
         break
       case 'km':
-        result = Math.round((initNum / miToKm) * 100000) / 100000
+        result = round(initNum / miToKm)
         break
     }
 

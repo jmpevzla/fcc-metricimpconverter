@@ -128,13 +128,13 @@ suite('Unit Tests', function(){
     test('should correctly convert lbs to kg', function () {
       const convertLbsToKg = convertHandler.convert(3, 'lbs')
 
-      assert.equal(convertLbsToKg, 1.360776, "(3, 'lbs') should be equal to 1.360777")
+      assert.equal(convertLbsToKg, 1.36078, "(3, 'lbs') should be equal to 1.36078")
     })
 
     test('should correctly convert kg to lbs', function () {
       const convertKgToLbs = convertHandler.convert(3, 'kg')
 
-      assert.equal(convertKgToLbs, 6.613873, "(3, 'kg') should be equal to 6.613873")
+      assert.equal(convertKgToLbs, 6.61387, "(3, 'kg') should be equal to 6.61387")
     })
 
     test('should correctly convert Mi to Km', function () {
