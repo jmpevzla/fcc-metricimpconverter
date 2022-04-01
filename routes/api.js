@@ -17,15 +17,15 @@ module.exports = function (app) {
     const initUnit = convertHandler.getUnit(input)
 
     if (initNum === 'ERROR' && initUnit === 'ERROR') {
-      return res.status(400).send('invalid number and unit')
+      return res.send('invalid number and unit')
     }
     
     if (initNum === 'ERROR') {
-      return res.status(400).send('invalid number')
+      return res.send('invalid number')
     }
 
     if (initUnit === 'ERROR') {
-      return res.status(400).send('invalid unit')
+      return res.send('invalid unit')
     }
     
     const initSpellOutUnit = convertHandler.spellOutUnit(initUnit)
