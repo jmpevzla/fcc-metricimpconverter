@@ -21,10 +21,10 @@ function ConvertHandler() {
   
   this.getUnit = function(input) {
     let result = 'ERROR';
-    let test = /(\dgal$)|(\dl$)|(\dlbs$)|(\dkg$)|(\dmi$)|(\dkm$)/.test(input)
+    let test = /(\dgal$)|(\dL$)|(\dlbs$)|(\dkg$)|(\dmi$)|(\dkm$)/.test(input)
     
     if (test) {
-      result = /(gal$)|(l$)|(lbs$)|(kg$)|(mi$)|(km$)/.exec(input)
+      result = /(gal$)|(L$)|(lbs$)|(kg$)|(mi$)|(km$)/.exec(input)
       if (result) {
         result = result.shift()
       } 
@@ -38,9 +38,9 @@ function ConvertHandler() {
     
     switch(initUnit) {
       case 'gal':
-        result = 'l'
+        result = 'L'
         break
-      case 'l':
+      case 'L':
         result = 'gal'
         break
       case 'lbs':
@@ -67,7 +67,7 @@ function ConvertHandler() {
       case 'gal':
         result = 'gallons'
         break
-      case 'l':
+      case 'L':
         result = 'liters'
         break
       case 'lbs':
@@ -97,7 +97,7 @@ function ConvertHandler() {
       case 'gal':
         result = initNum * galToL
         break
-      case 'l':
+      case 'L':
         result = Math.round((initNum / galToL) * 100000) / 100000
         break
       case 'lbs':
@@ -120,6 +120,8 @@ function ConvertHandler() {
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
     let result;
     
+    result = `${initNum} ${initUnit} converts to ${returnNum} ${returnUnit}`
+
     return result;
   };
   

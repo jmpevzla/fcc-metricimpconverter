@@ -7,7 +7,7 @@ let convertHandler = new ConvertHandler();
 suite('Unit Tests', function(){
   suite('Input Assertions', function () {
     test('should correctly read a whole number input', function () {
-      const getNum = convertHandler.getNum('2l')
+      const getNum = convertHandler.getNum('2L')
       assert.equal(getNum % 1, 0, "2 is a integer")
       assert.equal(getNum, 2, "should be equal to 2")
     });
@@ -19,7 +19,7 @@ suite('Unit Tests', function(){
     });
 
     test('should correctly read a fractional input', function () {
-      const getNum = convertHandler.getNum('1/5l')
+      const getNum = convertHandler.getNum('1/5L')
       assert.isNumber(getNum, "1/5 is a number")
       assert.equal(getNum, 0.2, "1/5 is 0.2 decimal")
     });
@@ -46,14 +46,14 @@ suite('Unit Tests', function(){
     
     test('should correctly read each valid input unit', function () {
       const getUnitgal = convertHandler.getUnit('2gal')
-      const getUnitl = convertHandler.getUnit('2l')
+      const getUnitl = convertHandler.getUnit('2L')
       const getUnitlbs = convertHandler.getUnit('2lbs')
       const getUnitkg = convertHandler.getUnit('2kg')
       const getUnitmi = convertHandler.getUnit('2mi')
       const getUnitkm = convertHandler.getUnit('2km')
       
       assert.equal(getUnitgal, 'gal', "'2gal' should be equal to 'gal'")
-      assert.equal(getUnitl, 'l', "'2l' should be equal to 'l'")
+      assert.equal(getUnitl, 'L', "'2L' should be equal to 'L'")
       assert.equal(getUnitlbs, 'lbs', "'2lbs' should be equal to 'lbs'")
       assert.equal(getUnitkg, 'kg', "'2kg' should be equal to 'kg'")
       assert.equal(getUnitmi, 'mi', "'2mi' should be equal to 'mi'")
@@ -75,14 +75,14 @@ suite('Unit Tests', function(){
 
     test('should return the correct return unit for each valid input unit', function () {
       const getRetUnitgal = convertHandler.getReturnUnit('gal')
-      const getRetUnitl = convertHandler.getReturnUnit('l')
+      const getRetUnitl = convertHandler.getReturnUnit('L')
       const getRetUnitlbs = convertHandler.getReturnUnit('lbs')
       const getRetUnitkg = convertHandler.getReturnUnit('kg')
       const getRetUnitmi = convertHandler.getReturnUnit('mi')
       const getRetUnitkm = convertHandler.getReturnUnit('km')
       
-      assert.equal(getRetUnitgal, 'l', "'gal' should be equal to 'l'")
-      assert.equal(getRetUnitl, 'gal', "'l' should be equal to 'gal'")
+      assert.equal(getRetUnitgal, 'L', "'gal' should be equal to 'L'")
+      assert.equal(getRetUnitl, 'gal', "'L' should be equal to 'gal'")
       assert.equal(getRetUnitlbs, 'kg', "'lbs' should be equal to 'kg'")
       assert.equal(getRetUnitkg, 'lbs', "'kg' should be equal to 'lbs'")
       assert.equal(getRetUnitmi, 'km', "'mi' should be equal to 'km'")
@@ -95,14 +95,14 @@ suite('Unit Tests', function(){
 
     test('should correctly return the spelled-out string unit for each valid input unit', function () {
       const getSpellUnitgal = convertHandler.spellOutUnit('gal')
-      const getSpellUnitl = convertHandler.spellOutUnit('l')
+      const getSpellUnitl = convertHandler.spellOutUnit('L')
       const getSpellUnitlbs = convertHandler.spellOutUnit('lbs')
       const getSpellUnitkg = convertHandler.spellOutUnit('kg')
       const getSpellUnitmi = convertHandler.spellOutUnit('mi')
       const getSpellUnitkm = convertHandler.spellOutUnit('km')
       
       assert.equal(getSpellUnitgal, 'gallons', "'gal' should be equal to 'gallons'")
-      assert.equal(getSpellUnitl, 'liters', "'l' should be equal to 'liters'")
+      assert.equal(getSpellUnitl, 'liters', "'L' should be equal to 'liters'")
       assert.equal(getSpellUnitlbs, 'pounds', "'lbs' should be equal to 'pounds'")
       assert.equal(getSpellUnitkg, 'kilograms', "'kg' should be equal to 'kilograms'")
       assert.equal(getSpellUnitmi, 'miles', "'mi' should be equal to 'miles'")
@@ -120,9 +120,9 @@ suite('Unit Tests', function(){
     })
 
     test('should correctly convert L to gal', function () {
-      const convertLToGal = convertHandler.convert(3, 'l')
+      const convertLToGal = convertHandler.convert(3, 'L')
 
-      assert.equal(convertLToGal, 0.79252, "(3, 'l') should be equal to 0.79252")
+      assert.equal(convertLToGal, 0.79252, "(3, 'L') should be equal to 0.79252")
     })
 
     test('should correctly convert lbs to kg', function () {
